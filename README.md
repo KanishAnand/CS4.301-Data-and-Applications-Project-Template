@@ -44,6 +44,8 @@ source path_to_COMPANY.sql;
 
 Again although you weren't explicitly told to use PyMySQL it is recommended that you do.
 
+That being said, **YOU CANNOT USE PANDAS OR OTHER PYTHON LIBRARIES TO DO THIS PROJECT**
+
 PyMySQL is an interface for connection to the MySQL server from Python.
 
 To install PyMySQL, you can use one of the two routes  
@@ -93,6 +95,19 @@ These options perform the following functions
 * Employee Statistics - Given an employee ESSN, this function displays a report showing how much time this employee spends on each project and how much the company spends on this employee wrt the amount of salary he is being paid
 
 * Check messages - An email like feature on the local server. To show the working of this feature you may locally open two instances of the software, that is if you choose to implement it. This may be relaxed.
+
+Since the orignal database didn't support messaging functionality, another table called MESSAGES is included. To create this table just run
+```
+CREATE TABLE MESSAGES( 
+    Essn1 CHAR(9) NOT NULL, 
+    Essn2 CHAR(9) NOT NULL, 
+    Timestamp TIMESTAMP NOT NULL, 
+    Message VARCHAR(1000), 
+    PRIMARY KEY(Essn1, Essn2, Timestamp), 
+    FOREIGN KEY (Essn1) REFERENCES EMPLOYEE(Ssn)
+    FOREIGN KEY(Essn2) REFERENCES EMPLOYEE(Ssn) );
+    
+```
 
 ## Resources
 
