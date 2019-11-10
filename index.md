@@ -1,6 +1,14 @@
 # CS4.301-Data-and-Applications-Project-Template
 
-This repository will serve as a template for the aformentiontioned course project. The instructions and tools given here are compatible with python 3.X. The corresponding instructions and toold for python 2 have already been provided in the course moodle page
+This repository will serve as a template for the aformentiontioned course project. The instructions and tools given here are compatible with python 3.X. The corresponding instructions and tools for python 2 have already been provided in the course moodle page.
+
+
+## Administrivia
+
+Your projects will be evaluated on **13th November** during the lab session (8:30 - 11:30). You will demonstrate all the features of your projects and will be graded by the TAs.
+
+This has already been announced in the lab.
+
 
 ## Installation Instructions
 
@@ -8,7 +16,7 @@ I trust that the students reading this are all at a respectable age to be able t
 
 ### MySQL
 
-Although you haven't been strictly been told to explicitly use MySQL it is highly recommended. To install MySQL server on Ubuntu, run the following commands
+Although you haven't strictly been told to explicitly use MySQL it is highly recommended. To install MySQL server on Ubuntu, run the following commands
 
 ```
 sudo apt-get update
@@ -35,7 +43,9 @@ At this stage the created user doesn't have access to the data. To allow access,
 GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
 ```
 
-With this you must be in a place to be able to place around with MySQL. Since this template has been made to work on top of the COMPANY dataset, proceed to load the dataset using the following command within the mysql environment
+It is also possible to grant a new user access to only one database or some tables of a database. If your application involves different user types with different access clearences, you may use this feature.
+
+With this you must be in a place to be able to play around with MySQL. Since this template has been made to work on top of the COMPANY dataset, proceed to load the dataset using the following command within the mysql environment
 ```
 source path_to_COMPANY.sql;
 ```
@@ -58,45 +68,45 @@ pip install PyMySQL
 conda install -c anaconda pymysql
 ```
 
-## Boiler Plate
+## Boilerplate
 
-In this section, I will explain the boiler plate to the best of my abilities and also explain what is required of you.
+We have provided a boilerplate piece of code just to get you started (althought I hope you already have). Similar code snippets in Python2 have already been provided. The only reason this bioler plate is being shared is to show you what an acceptable UI looks like.  
 
 ### UI Interface
 Due to the timeline, you are not expected to implement a graphical UI (although you aren't disallowed either). A CLI (Command Line Interface) will do for the sake of the project
 
-You can also have different interfaces depending on which kind of user logged in to your software. Under the assumption that someone from adminstration logged into mine, the UI for the boiler plate looks something like this
+You can also have different interfaces depending on which kind of user logged in to your software. Under the assumption that someone from adminstration logged into mine, the UI for the boilerplate looks something like this
 ```
 1. Hire a new employee
 2. Fire an employee
 3. Promote an employee
-4. Reward a department 
-5. Project Statistics
-6. Department Statistics
-7. Employee Statistics
-8. Check messages
+4. Employee Statistics
+5. Logout
 
 Enter Choice > 
 ```
 
-These options perform the following functions
-* Hire a new employee - The function performs the task of hiring a new employee, from taking in the details to inseting relevant rows
+Only one function has been implemented in the code provided. But it's enough to give you an idea about what you have to do.
 
-* Fire an employee - similar to hiring one except it technically removes all relevant rows
+### Error Handling
 
-* Promote an employee - Updates the position (makes employee a supervisor or maybe a manager) and also possibly increases the salary
+Although in this code, error handling hasn't explicitly been handled, you have to handle errors appropriately.  
 
-* Reward a department - Increases the salary of a whole department by some user specified x%
+For example, if you try to delete a department, you can also do so after you've reassigned all the employess to another department. Or if you want to fire the manager of a department, you can only do so after assigning the department a new manager (where again, yes, the manager has to satisfy the foreign key constrain i.e. should be an employee himself)
 
-* Project Statistics - Given the project number, the function displays a statistical report showing how much money and time is spent on each project per department.
+Instead of handling all the errors yourself, you can make use of error messages which MySQL returns. You might find this useful to implement when you want to debug as well
+```
+try:
+    do_stuff()
+except Exception as e:
+    print (e)
+```
+resource: https://stackoverflow.com/questions/25026244/how-to-get-the-mysql-type-of-error-with-pymysql
 
-* Department Statistics - Given a department number, this fuction displays a report showing how productive this department is given the amount of money spent for each project 
+## Miscelaneous 
 
-* Employee Statistics - Given an employee ESSN, this function displays a report showing how much time this employee spends on each project and how much the company spends on this employee wrt the amount of salary he is being paid
+For those of you who want to implement a messaging option, you can make a simple abstract of it by implementing a table like below. You are not expected to make a real time version due to the time contraints even if you have added said function to your requirements.
 
-* Check messages - An email like feature on the local server. To show the working of this feature you may locally open two instances of the software, that is if you choose to implement it. This may be relaxed.
-
-Since the orignal database didn't support messaging functionality, another table called MESSAGES is included. To create this table just run
 ```
 CREATE TABLE MESSAGES( 
     Essn1 CHAR(9) NOT NULL, 
@@ -111,4 +121,10 @@ CREATE TABLE MESSAGES(
 
 ## Resources
 
+* https://www.python.org/dev/peps/pep-0249/
+* https://dev.mysql.com/doc/connector-python/en/
+* http://zetcode.com/python/pymysql/
+* https://www.tutorialspoint.com/python3/python_database_access.htm
+* https://o7planning.org/en/11463/connecting-mysql-database-in-python-using-pymysql
+* https://www.journaldev.com/15539/python-mysql-example-tutorial
 

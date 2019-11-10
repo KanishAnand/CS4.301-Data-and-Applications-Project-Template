@@ -106,9 +106,12 @@ CREATE TABLE MESSAGES(
     PRIMARY KEY(Essn1, Essn2, Timestamp), 
     FOREIGN KEY (Essn1) REFERENCES EMPLOYEE(Ssn)
     FOREIGN KEY(Essn2) REFERENCES EMPLOYEE(Ssn) );
-    
+
 ```
 
 ## Resources
+
+* http://zetcode.com/python/pymysql/
+
 
 
