@@ -79,6 +79,7 @@ python3 boilerPlate.py
 ```
 
 This will prompt for you to enter your username and password.
+
 ### UI Interface
 Due to the timeline, you are not expected to implement a graphical UI (although you aren't disallowed either). A CLI (Command Line Interface) will do for the sake of the project
 
@@ -99,7 +100,7 @@ Only one function has been implemented in the code provided. But it's enough to 
 
 Although in this code, error handling hasn't explicitly been handled, you have to handle errors appropriately.  
 
-For example, if you try to delete a department, you can also do so after you've reassigned all the employess to another department. Or if you want to fire the manager of a department, you can only do so after assigning the department a new manager (where again, yes, the manager has to satisfy the foreign key constrain i.e. should be an employee himself)
+For example, if you try to delete a department, you can only do so after you've reassigned all the employess to another department. Or if you want to fire the manager of a department, you can only do so after assigning the department a new manager (where again, yes, the manager has to satisfy the foreign key constrain i.e. should be an employee himself)
 
 Instead of handling all the errors yourself, you can make use of error messages which MySQL returns. You might find this useful to implement when you want to debug as well
 ```
