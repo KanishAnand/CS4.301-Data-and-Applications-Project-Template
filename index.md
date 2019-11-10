@@ -71,7 +71,14 @@ conda install -c anaconda pymysql
 ## Boilerplate
 
 We have provided a boilerplate piece of code just to get you started (althought I hope you already have). Similar code snippets in Python2 have already been provided. The only reason this bioler plate is being shared is to show you what an acceptable UI looks like.  
+### To Run
+To run the boilerplate code, you will need to login with a username and password(your MYSQL username and password) which has access to the COMPANY database.
 
+```
+python3 boilerPlate.py
+```
+
+This will prompt for you to enter your username and password.
 ### UI Interface
 Due to the timeline, you are not expected to implement a graphical UI (although you aren't disallowed either). A CLI (Command Line Interface) will do for the sake of the project
 
