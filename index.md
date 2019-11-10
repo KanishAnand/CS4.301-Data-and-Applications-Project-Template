@@ -111,7 +111,7 @@ except Exception as e:
 ```
 resource: https://stackoverflow.com/questions/25026244/how-to-get-the-mysql-type-of-error-with-pymysql
 
-## Miscelaneous 
+## Miscellaneous 
 
 For those of you who want to implement a messaging option, you can make a simple abstract of it by implementing a table like below. You are not expected to make a real time version due to the time contraints even if you have added said function to your requirements.
 

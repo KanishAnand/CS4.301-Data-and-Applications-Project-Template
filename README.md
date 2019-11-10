@@ -71,6 +71,14 @@ conda install -c anaconda pymysql
 ## Boilerplate
 
 We have provided a boilerplate piece of code just to get you started (althought I hope you already have). Similar code snippets in Python2 have already been provided. The only reason this bioler plate is being shared is to show you what an acceptable UI looks like.  
+### To Run
+To run the boilerplate code, you will need to login with a username and password(your MYSQL username and password) which has access to the COMPANY database.
+
+```
+python3 boilerPlate.py
+```
+
+This will prompt for you to enter your username and password.
 
 ### UI Interface
 Due to the timeline, you are not expected to implement a graphical UI (although you aren't disallowed either). A CLI (Command Line Interface) will do for the sake of the project
@@ -92,7 +100,7 @@ Only one function has been implemented in the code provided. But it's enough to 
 
 Although in this code, error handling hasn't explicitly been handled, you have to handle errors appropriately.  
 
-For example, if you try to delete a department, you can also do so after you've reassigned all the employess to another department. Or if you want to fire the manager of a department, you can only do so after assigning the department a new manager (where again, yes, the manager has to satisfy the foreign key constrain i.e. should be an employee himself)
+For example, if you try to delete a department, you can only do so after you've reassigned all the employess to another department. Or if you want to fire the manager of a department, you can only do so after assigning the department a new manager (where again, yes, the manager has to satisfy the foreign key constrain i.e. should be an employee himself)
 
 Instead of handling all the errors yourself, you can make use of error messages which MySQL returns. You might find this useful to implement when you want to debug as well
 ```
@@ -103,7 +111,7 @@ except Exception as e:
 ```
 resource: https://stackoverflow.com/questions/25026244/how-to-get-the-mysql-type-of-error-with-pymysql
 
-## Miscelaneous 
+## Miscellaneous 
 
 For those of you who want to implement a messaging option, you can make a simple abstract of it by implementing a table like below. You are not expected to make a real time version due to the time contraints even if you have added said function to your requirements.
 
